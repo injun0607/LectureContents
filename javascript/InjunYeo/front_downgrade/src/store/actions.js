@@ -10,7 +10,10 @@ import {
     ADD_MANY_MONSTER,
     //스프링관련
     SUCCESS_GEN_RAND_NUM,
-    FAIL_GEN_RAND_NUM
+    FAIL_GEN_RAND_NUM,
+    //board 관련
+    FETCH_BOARD_LIST,
+    FETCH_BOARD
 
     
 
@@ -77,6 +80,20 @@ export default{
                 })
                 .catch((res) => {
                     commit(FAIL_GEN_RAND_NUM,res)
+                })
+    },
+    //게시판
+    fetchBoardList({commit}){
+        return axios.get('http://localhost:7777/vueboard/lists')
+                .then((res)=> {
+                    commit(FETCH_BOARD_LIST,res.data)
+                })
+    },
+    fetchBoard({commit},boardNo){
+        //가변형태가 들어갈때는 ` 으로 써야한다.
+        return axios.get(`http://localhost:7777/vueboard/${boardNo}`)
+                .then((res)=>{
+                    commit(FETCH_BOARD,res.data)
                 })
     }
 }

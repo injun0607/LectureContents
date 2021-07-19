@@ -7,6 +7,13 @@ import Game from '../views/Game.vue'
 import Todo from '../views/Todo.vue'
 import Homework from '../views/Homework.vue'
 
+//..:상위폴더 @:src폴더를 의미 
+import BoardListPage from '@/views/BoardListPage.vue'
+import BoardRegisterPage from '@/views/BoardRegisterPage.vue'
+import BoardReadPage from '@/views/BoardReadPage.vue'
+
+import GameMemberRegisterPage from '@/views/GameMemberRegisterPage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -34,7 +41,39 @@ const routes = [
     path: '/homework',
     name: 'Homework',
     component: Homework
-  }
+  },
+  {
+    path: '/board',
+    name: 'BoardListPage',
+    components:{
+      default: BoardListPage
+    } 
+  },
+  {
+    path: '/board/:boardNo',
+    name: 'BoardReadPage',
+    components:{
+      default: BoardReadPage
+    },
+    props:{
+      default: true
+    }
+  },
+  {
+    path: '/board/create',
+    name: 'BoardRegisterPage',
+    components:{
+      default: BoardRegisterPage
+    } 
+  },
+  {
+    path: '/member/create',
+    name: 'GameMemberRegisterPage',
+    components:{
+      default: GameMemberRegisterPage
+    } 
+  },
+  
 
 ]
 

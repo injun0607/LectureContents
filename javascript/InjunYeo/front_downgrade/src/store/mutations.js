@@ -12,7 +12,10 @@ import{
     DEATH,
     //스프링 관련
     SUCCESS_GEN_RAND_NUM,
-    FAIL_GEN_RAND_NUM
+    FAIL_GEN_RAND_NUM,
+    //board관련
+    FETCH_BOARD_LIST,
+    FETCH_BOARD
 }from './mutation-types'
 
 //여기는 동기처리를 하기 때문에 데이터 무결성이 보장됨
@@ -30,6 +33,7 @@ export default{
         const {id,content} = payload
         const targetIndex = state.todoItems.findIndex(v =>  v.id === id)
         const targetTodoItem = state.todoItems[targetIndex]
+        //splice를통해 지운다음 고친다.{ ...targetTodoItem,content } ->  ...targetTodoItem위치부터 content를 채워라 (... 뒤에남아있는것들이 전부다)
         state.todoItems.splice(targetIndex,1, { ...targetTodoItem,content })
     },
     [SET_EDITTING_ID] (state, id){
@@ -81,6 +85,14 @@ export default{
     },
     [FAIL_GEN_RAND_NUM](){
         console.log('통신에러')
+    },
+    //board관련
+    [FETCH_BOARD_LIST](state, boards){
+        state.boards = boards;
+
+    },
+    [FETCH_BOARD](state,board){
+        state.board = board
     }
 
 }

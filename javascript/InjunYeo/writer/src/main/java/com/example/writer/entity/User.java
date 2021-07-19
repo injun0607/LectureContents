@@ -11,7 +11,7 @@ import java.util.Date;
 @Setter
 @ToString
 
-public class user {
+public class User {
 
     private int userNo;
     private String id;
