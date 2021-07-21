@@ -11,8 +11,12 @@ import Homework from '../views/Homework.vue'
 import BoardListPage from '@/views/BoardListPage.vue'
 import BoardRegisterPage from '@/views/BoardRegisterPage.vue'
 import BoardReadPage from '@/views/BoardReadPage.vue'
+import BoardModifyPage from '@/views/BoardModifyPage.vue'
 
 import GameMemberRegisterPage from '@/views/GameMemberRegisterPage.vue'
+
+//삼목
+import Concave from '@/views/Concave.vue'
 
 Vue.use(VueRouter)
 
@@ -42,6 +46,7 @@ const routes = [
     name: 'Homework',
     component: Homework
   },
+  //board
   {
     path: '/board',
     name: 'BoardListPage',
@@ -67,12 +72,40 @@ const routes = [
     } 
   },
   {
+    path: '/board/:boardNo/edit',
+    name: 'BoardModifyPage',
+    components:{
+      default: BoardModifyPage
+    },
+    props: {
+      //라우팅 피라미터를 props에 자동으로 설정하게 서포트함
+      default: true
+    } 
+  },
+  //member
+  {
     path: '/member/create',
     name: 'GameMemberRegisterPage',
     components:{
       default: GameMemberRegisterPage
     } 
   },
+    {
+    path: '/member/create',
+    name: 'GameMemberRegisterPage',
+    components:{
+      default: GameMemberRegisterPage
+    } 
+  },
+  //삼목
+  {
+    path: '/concave',
+    name: 'Concave',
+    components:{
+      default: Concave
+    } 
+  },
+
   
 
 ]
