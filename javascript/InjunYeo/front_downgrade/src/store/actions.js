@@ -13,7 +13,10 @@ import {
     FAIL_GEN_RAND_NUM,
     //board 관련
     FETCH_BOARD_LIST,
-    FETCH_BOARD
+    FETCH_BOARD,
+    //product 관련
+    FETCH_PRODUCT_LIST,
+    FETCH_PRODUCT
 
     
 
@@ -95,5 +98,21 @@ export default{
                 .then((res)=>{
                     commit(FETCH_BOARD,res.data)
                 })
-    }
+    },
+
+    //product
+    fetchProductList({commit}){
+        return axios.get('http://localhost:7777/vueproduct/lists')
+            .then((res)=> {
+                commit(FETCH_PRODUCT_LIST,res.data)
+            })
+
+    },
+    fetchProduct({commit},productNo){
+        //가변형태가 들어갈때는 ` 으로 써야한다.
+        return axios.get(`http://localhost:7777/vueproduct/${productNo}`)
+                .then((res)=>{
+                    commit(FETCH_PRODUCT,res.data)
+                })
+    },
 }

@@ -18,6 +18,12 @@ public class User {
     private UserService service;
      */
 
+    @PostMapping("/login")
+    public String postUserLogin(){
+        log.info("postUserLogin()");
+
+        return"user/success";
+    }
     @GetMapping("/login")
     public String getLogin(){
         log.info("getLogin()");
@@ -25,12 +31,7 @@ public class User {
         return "user/login";
     }
 
-    @PostMapping("/login")
-    public String postUserLogin(){
-        log.info("postUserLogin()");
 
-        return"user/success";
-    }
 
     @GetMapping("/register")
     public String getUserRegister(){
