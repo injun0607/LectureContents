@@ -18,7 +18,18 @@ import{
     FETCH_BOARD,
     //product관련
     FETCH_PRODUCT_LIST,
-    FETCH_PRODUCT
+    FETCH_PRODUCT,
+    //판타지 온라인
+    FETCH_MONSTER_LIST,
+    FETCH_MONSTER,
+    //랜덤 던전
+    ALLOC_RANDOM_DUNGEON,
+    //성적 관리
+    SCORE_MANAGEMENT,
+    CALC_MEAN,
+    //크롤링
+    CRAWL_START,
+
 }from './mutation-types'
 
 //여기는 동기처리를 하기 때문에 데이터 무결성이 보장됨
@@ -103,6 +114,35 @@ export default{
     },
     [FETCH_PRODUCT](state,product){
         state.product = product
+    },
+    // 판타지 온라인
+    [FETCH_MONSTER_LIST] (state, monsters) {
+        state.monsters = monsters
+    },
+    [FETCH_MONSTER] (state, monster) {
+        state.monster = monster
+    },
+    // 랜덤 던전
+    [ALLOC_RANDOM_DUNGEON] (state, dungeons) {
+        state.dungeons = dungeons
+    },
+    //성적 관리
+    [SCORE_MANAGEMENT] (state, students){
+        state.students = students
+    },
+    [CALC_MEAN] (state) {
+        state.mean = 0
+        var tmp = 0
+        var len = state.students.length
+
+        for (var i = 0; i < len; i++) {
+            tmp += state.students[i].score
+        }
+
+        state.mean = tmp / len
+    },
+    [CRAWL_START] (state, payload){
+        state.lists = payload
     },
 
 }

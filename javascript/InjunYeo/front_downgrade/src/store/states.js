@@ -15,5 +15,16 @@ export default {
     board: null,
     //상품게시판
     products: [],
-    product: null
+    product: null,
+    // 판타지 온라인
+    monsters: [],
+    monster: null,
+    //랜덤 던전
+    dungeons: [],
+    //성적관리
+    students:[],
+    //크롤링
+    lists: [],
+    
+
 }

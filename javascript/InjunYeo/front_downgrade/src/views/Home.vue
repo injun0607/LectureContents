@@ -41,6 +41,8 @@
                     active-class="active">
                 GameMemberRegisterPage
             </router-link>
+
+
             <router-link :to="{ name: 'Concave' }"
                     class="nav-link"
                     active-class="active">
@@ -52,6 +54,41 @@
                     active-class="active">
                 ProductListPage
             </router-link>
+            <router-link :to="{ name: 'MonsterListPage' }"
+                    class="nav-link"
+                    active-class="active">
+                MonsterListPage
+            </router-link>
+            <router-link :to="{ name: 'EventBusTestPage' }"
+                    class="nav-link"
+                    active-class="active">
+                EventBus테스트
+            </router-link>
+            <router-link :to="{ name: 'DungeonListPage' }"
+                    class="nav-link"
+                    active-class="active">
+                Dungeon 테스트
+            </router-link>    
+            <router-link :to="{ name: 'OnlyVuePage' }"
+                    class="nav-link"
+                    active-class="active">
+                Only 뷰 페이지
+            </router-link> 
+            <router-link :to="{ name: 'SpringInterconnectionPage' }"
+                    class="nav-link"
+                    active-class="active">
+                Spring 삼각형
+            </router-link>  
+            <router-link :to="{ name: 'ScoreManagerPage' }"
+                    class="nav-link"
+                    active-class="active">
+                성적 관리 페이지
+            </router-link> 
+            <router-link :to="{ name: 'DaumNewsCrawlerPage' }"
+                    class="nav-link"
+                    active-class="active">
+                다음 뉴스 크롤러
+            </router-link>           
         </div>
     </div>
 </template>

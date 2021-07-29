@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -9,13 +10,14 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
+public class Student {
 
-public class Product {
 
-    private Integer productNo;
+    private Integer studentNo;
     private String name;
-    private String price;
-    private String producer;
-    private String description;
+    private Integer score;
     private Date regDate;
+
+
+
 }

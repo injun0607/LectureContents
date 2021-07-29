@@ -16,13 +16,22 @@ import {
     FETCH_BOARD,
     //product 관련
     FETCH_PRODUCT_LIST,
-    FETCH_PRODUCT
+    FETCH_PRODUCT,
+    //판타지온라인
+    FETCH_MONSTER_LIST,
+    FETCH_MONSTER,
+    ALLOC_RANDOM_DUNGEON,
+    //성정 관리 시스템
+    SCORE_MANAGEMENT,
+    //크롤링
+    CRAWL_START,
 
     
 
 } from './mutation-types'
 
 import axios from 'axios'
+import router from '../router'
 
 //보통 action에서 처리하는 것은 비동기 처리를 함
 export default{
@@ -113,6 +122,45 @@ export default{
         return axios.get(`http://localhost:7777/vueproduct/${productNo}`)
                 .then((res)=>{
                     commit(FETCH_PRODUCT,res.data)
+                })
+    },
+    // 판타지 온라인
+    fetchMonsterList ({ commit }) {
+        return axios.get('http://localhost:7777/vuemonster/lists')
+                .then((res) => {
+                    commit(FETCH_MONSTER_LIST, res.data)
+                })
+    },
+    fetchMonster ({ commit }, monsterNo) {
+        return axios.get(`http://localhost:7777/vuemonster/${monsterNo}`)
+                .then((res) => {
+                    commit(FETCH_MONSTER, res.data)
+                })
+           
+             
+    },
+    randomDungeonList({commit}) {
+        return axios.get('http://localhost:7777/vuedungeon/randomAlloc')
+                .then((res) => {
+                    commit(ALLOC_RANDOM_DUNGEON,res.data)
+                })
+    },
+    //성적관리
+    fetchStudentScoreList ({ commit }) {
+        return axios.get('http://localhost:7777/vuescore/scoreManagement')
+                .then((res) => {
+                    commit(SCORE_MANAGEMENT, res.data)
+                })
+    },
+    //크롤링
+    async crawlFind ({ commit }, category) {
+        axios.get('http://localhost:7777/' + `${category}`)
+                .then(({ data }) => {
+                    commit(CRAWL_START, data)
+
+                    if (window.location.pathname !== '/daumNewsCrawler') {
+                        router.push('/daumNewsCrawler')
+                    }
                 })
     },
 }

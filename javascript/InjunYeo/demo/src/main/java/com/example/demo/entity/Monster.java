@@ -9,13 +9,18 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
+public class Monster {
 
-public class Product {
+    //제이슨 내부에서 써야하면 클래스타입을 써야한다.
 
-    private Integer productNo;
+    private Integer monsterNo;
     private String name;
-    private String price;
-    private String producer;
     private String description;
+    private Integer hp;
+    private Integer exp;
+    private Integer dropMoney;
+    private String dropItem;
     private Date regDate;
+
+
 }
