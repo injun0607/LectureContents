@@ -127,7 +127,45 @@
                     class="nav-link"
                     active-class="active">
                 Vuetify 활용
-            </router-link>              
+            </router-link>
+            <router-link :to="{ name: 'JpaLoginTestPage' }"
+                    class="nav-link"
+                    active-class="active">
+                JPA 로그인 만들기 연습
+            </router-link>
+            <router-link :to="{ name: 'CoverFlowTestPage' }"
+                    class="nav-link"
+                    active-class="active">
+               커버플로우
+            </router-link> 
+            <router-link :to="{ name: 'AwesomeSwiperTestPage' }"
+                    class="nav-link"
+                    active-class="active">
+               어섬 스와이퍼 테스트
+            </router-link>
+            <router-link :to="{ name: 'ImageGalleryTestPage' }"
+                    class="nav-link"
+                    active-class="active">
+               이미지 갤러리 테스트
+            </router-link> 
+            <router-link :to="{ name: 'CalendarTestPage' }"
+                    class="nav-link"
+                    active-class="active">
+               이미지 갤러리 테스트
+            </router-link> 
+            <router-link :to="{ name: 'MemberJoinColumnTestPage' }"
+                    class="nav-link"
+                    active-class="active">
+               멤버 조인 컬럼테스트
+            </router-link>
+            <router-link :to="{ name: 'VuetifyMemberLoginPage' }"
+                    class="nav-link"
+                    active-class="active">
+               로그인테스트 펭지ㅣ
+            </router-link>   
+                               
+                
+                         
         </div>
     </div>
 

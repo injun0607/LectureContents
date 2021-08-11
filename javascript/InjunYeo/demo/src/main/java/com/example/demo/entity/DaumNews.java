@@ -11,6 +11,7 @@ import javax.persistence.*;
 @ToString
 @Data
 @NoArgsConstructor
+//jpa사용시 필수 어노테이션
 @Entity
 public class DaumNews {
 
@@ -30,6 +31,7 @@ public class DaumNews {
     @Column(length = 2000, nullable = false)
     private String address;
 
+    //빌더를 안써도 생성은된다.
     @Builder
     public DaumNews(String newsNo, String category, String title, String address){
         this.newsNo = newsNo;

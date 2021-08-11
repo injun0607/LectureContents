@@ -50,6 +50,28 @@ import MaterializeTestPage from '@/views/MaterializeTestPage.vue'
 import MaterializeGridTestPage from '@/views/MaterializeGridTestPage.vue'
 import VuetifyAllInOneTestPage from '@/views/VuetifyAllInOneTestPage.vue'
 
+//jpa로그인하기
+import JpaLoginTestPage from '@/views/JpaLoginTestPage.vue'
+
+//커버플로우
+import CoverFlowTestPage from '@/views/CoverFlowTestPage.vue'
+
+
+//vue-awesome-swiper
+import AwesomeSwiperTestPage from '@/views/AwesomeSwiperTestPage.vue'
+
+//ImageGalleryTestPage
+import ImageGalleryTestPage from '@/views/ImageGalleryTestPage.vue'
+
+//캘린더테스트
+import CalendarTestPage from '@/views/CalendarTestPage.vue'
+import MemberJoinColumnTestPage from '@/views/MemberJoinColumnTestPage.vue'
+
+//로그인테스트
+import VuetifyMemberLoginPage from '@/views/VuetifyMemberLoginPage.vue'
+
+
+
 
 
 Vue.use(VueRouter)
@@ -302,6 +324,58 @@ const routes = [
       default: VuetifyAllInOneTestPage
     }
   },
+  {
+    path: '/jpaLoginTest',
+    name: 'JpaLoginTestPage',
+    components: {
+      default: JpaLoginTestPage
+    }
+  },
+  {
+    path: '/coverflowTest',
+    name: 'CoverFlowTestPage',
+    components: {
+      default: CoverFlowTestPage
+    }
+  },
+  {
+    path: '/awesomeSwiperTest',
+    name: 'AwesomeSwiperTestPage',
+    components: {
+      default: AwesomeSwiperTestPage
+    }
+  },
+  {
+    path: '/imageGalleryTestP',
+    name: 'ImageGalleryTestPage',
+    components: {
+      default: ImageGalleryTestPage
+    }
+  },
+  {
+    path: '/calendar',
+    name: 'CalendarTestPage',
+    components: {
+      default: CalendarTestPage
+    }
+  },
+  {
+    path: '/memberJoinColumn',
+    name: 'MemberJoinColumnTestPage',
+    components: {
+      default: MemberJoinColumnTestPage
+    }
+  },
+  {
+    path: '/vuetifyMemberLogin',
+    name: 'VuetifyMemberLoginPage',
+    components: {
+      default: VuetifyMemberLoginPage
+    }
+  },
+
+  
+  
   
 ]
   

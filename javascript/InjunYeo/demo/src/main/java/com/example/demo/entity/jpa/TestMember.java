@@ -1,5 +1,4 @@
-package com.example.writer.entity;
-
+package com.example.demo.entity.jpa;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,28 +6,29 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-@NoArgsConstructor
+
+
 @Data
+@NoArgsConstructor
 @Entity
-@Table(name="user")
-public class User {
+@Table(name="test_member")
+public class TestMember {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="user_no")
-    private Long userNo;
+    @Column(name = "member_no")
+    private Long memberNo;
 
-    @Column(length=64,nullable = false)
-    private String email;
+    @Column(length = 64, nullable = false)
+    private String userId;
 
-    @Column(length=255,nullable = false)
-    private String pw;
-
-    @Column(length = 64,nullable = false)
-    private String name;
+    @Column(length = 64, nullable = false)
+    private String password;
 
     @CreationTimestamp
     private Date regDate;
@@ -36,5 +36,5 @@ public class User {
     @UpdateTimestamp
     private Date upDate;
 
-
 }
+
