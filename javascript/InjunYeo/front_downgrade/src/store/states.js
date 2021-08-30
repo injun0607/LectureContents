@@ -25,6 +25,8 @@ export default {
     students:[],
     //크롤링
     lists: [],
+    //세션
+    session:[],
     
 
 }

@@ -35,7 +35,7 @@ export default {
             title:'제목을 입력하세요',
             writer: '',
             content: '본문을 작성하세요'
-
+            
         }
     },
     methods:{

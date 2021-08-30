@@ -28,6 +28,7 @@ public class JPAMemberServiceImpl implements JPAMemberService {
 
     @Override
     public void register(MemberRequest memberRequest) throws Exception {
+
         String encodedPassword = passwordEncoder.encode(memberRequest.getPassword());
         memberRequest.setPassword(encodedPassword);
 
@@ -68,6 +69,19 @@ public class JPAMemberServiceImpl implements JPAMemberService {
 
         return true;
 
+    }
+
+    @Override
+    public boolean checkUserIdValidation(String userId) throws Exception {
+        Optional<Member> maybeMember = memberRepository.findByUserId(userId);
+
+        if (maybeMember == null)
+        {
+            log.info("login(): 그런 사람 없다.");
+            return false;
+        }
+
+        return true;
     }
     /*
     @Override

@@ -22,16 +22,16 @@ public class JPATestMemberController {
     private JPATestMemberService service;
 
 
-
     @GetMapping("/jpaMemberTest")
-    public void getJPATest() throws Exception{
+    public void getJPATest() throws Exception {
         log.info("getJPATest(): " + service.findByJPQL());
 
         List<Object[]> resultLists = service.findSpecificByJPQL();
-        for(Object[] result : resultLists){
+        for (Object[] result : resultLists) {
             log.info("getJPATest - findSpecificByJPQL(): " + Arrays.toString(result));
         }
 
 
     }
+
 }

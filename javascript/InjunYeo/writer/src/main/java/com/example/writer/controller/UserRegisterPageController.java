@@ -25,29 +25,16 @@ public class UserRegisterPageController {
     UserRepository userRepository;
 
     @PostMapping("/register")
-    public ResponseEntity<Void> userRegister(@RequestBody User user) throws Exception {
+    public ResponseEntity<Boolean> userRegister(@RequestBody User user) throws Exception {
         log.info("user-register(): "+user.getEmail()+user.getName()+user.getPw());
 
-        service.register(user);
+        boolean isSuccess = service.register(user);
 
-        return new ResponseEntity<Void>(HttpStatus.OK);
+
+        return new ResponseEntity<Boolean>(isSuccess,HttpStatus.OK);
     }
 
-    @PostMapping("/duplicheck")
-    public ResponseEntity<Boolean> emailDupliCheck(@RequestBody User user) throws Exception{
-        log.info("duplicheck()");
-        log.info(user.getEmail());
-        Boolean checker = service.duplicheck(user);
 
-        if(checker){
-            log.info("you can use email");
-        }
-        else{
-            log.info("you can't use email");
-        }
-
-        return new ResponseEntity<Boolean>(checker,HttpStatus.OK);
-    }
 
 
 

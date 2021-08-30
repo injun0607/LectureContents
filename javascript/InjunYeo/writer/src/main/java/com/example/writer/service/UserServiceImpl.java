@@ -4,6 +4,7 @@ import com.example.writer.entity.User;
 import com.example.writer.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -15,45 +16,49 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-    @Override
-    public void register(User user) throws Exception {
-
-        userRepository.save(user);
-    }
-
-    @Override
-    public boolean duplicheck(User user) throws Exception {
-        User maybeEmail = userRepository.findByEmail(user.getEmail());
-
-
-
-        if(maybeEmail == null){
-            log.info("duplicheck() : True!");
-            return true;
-        }
-        else{
-            log.info("duplicheck() : False!");
-            return false;
-        }
-
-    }
     /*
 
+     */
     @Override
-    public Boolean login(User user) throws Exception {
+    public boolean register(User user) throws Exception {
 
-        String maybeUser = userRepository.findByUserId(user.getId());
+        if (userRepository.findByEmail(user.getEmail()) == null){
+            log.info("tryRegister()! -- success");
+            String encodePassword = passwordEncoder.encode(user.getPw());
+            user.setPw(encodePassword);
 
-        if(maybeUser == null){
-            log.info("login(): 아이디가 올바르지 않습니다!");
+            userRepository.save(user);
+            return true;
+        }else{
+            log.info("tryRegister()! -- fail");
             return false;
         }
-
-        User loginUser = maybeUser.get();
 
 
     }
 
-     */
+
+    @Override
+    public Integer login(User user) throws Exception {
+
+        User maybeUser = userRepository.findByEmail(user.getEmail());
+
+        if(maybeUser == null){
+            log.info("login(): 이메일이 없습니다");
+            return 1;
+        }
+
+        if(!passwordEncoder.matches(user.getPw(),maybeUser.getPw())){
+            log.info("login() : 비밀번호가 다릅니다!");
+            return 2;
+        }
+
+        return 3;
+
+    }
+
+
 }

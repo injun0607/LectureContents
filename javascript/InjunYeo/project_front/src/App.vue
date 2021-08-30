@@ -1,20 +1,23 @@
 <template>
   <v-app>
-    <v-content>
-      <router-view/>
+    <v-content>  
+      <nav-bar-component/>
+      <router-view/> 
     </v-content>
   </v-app>
 </template>
 
 <script>
-
+import NavBarComponent from './views/navigation/NavBarComponent.vue'
 
 export default {
+  components: { NavBarComponent },
   name: 'App',
   
 }
 </script>
 <style>
+
 /*
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

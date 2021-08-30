@@ -37,6 +37,7 @@ export default {
         ...mapState(['board'])
     },
     created () {
+        alert(this.boardNo)
         this.fetchBoard(this.boardNo)
                 .catch(err => {
                     alert(err.response.data.message)
