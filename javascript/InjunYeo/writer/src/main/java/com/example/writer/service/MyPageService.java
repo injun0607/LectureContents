@@ -9,7 +9,7 @@ public interface MyPageService {
 
     public boolean register(MyPageBoard myPageBoard) throws Exception;
 
-    public List<MyPageBoard> list() throws Exception;
+    public List<MyPageBoard> myList(Long userNo) throws Exception;
 
     public Optional<MyPageBoard> read(Long boardNo) throws Exception;
 }

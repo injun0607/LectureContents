@@ -74,6 +74,17 @@ const routes = [
       default: true
     }
   },
+  {
+    path: '/my-page-board-detail/:boardNo',
+    name: 'MyPageBoardDetail',
+    components: {
+      default: MyPageBoardDetail
+    },
+    props:{
+      default: true
+    }
+  },
+  
 
   {
     path: '/test',

@@ -8,4 +8,6 @@ public interface UserService {
 
 
     public Integer login(User user) throws Exception;
+
+    public boolean checkUserIdValidation(String userEmail) throws Exception;
 }

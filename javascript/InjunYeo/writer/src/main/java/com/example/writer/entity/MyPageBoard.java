@@ -7,7 +7,9 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @NoArgsConstructor
 @Data
@@ -20,8 +22,11 @@ public class MyPageBoard {
     @Column(name="board_no")
     private Long boardNo;
 
+    @Column(name = "user_no")
+    private Long userNo;
+
     @Column(length=64,nullable = false)
-    private String Title;
+    private String title;
 
     @Column(length=64,nullable = false)
     private String writer;
@@ -29,6 +34,27 @@ public class MyPageBoard {
     @Column(nullable = false)
     private String content;
 
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name="tag_no")
+    private List<Tag> tags = new ArrayList<Tag>();
+
+    public MyPageBoard(String title, String writer, String content){
+        this.title = title;
+        this.writer=writer;
+        this.content=content;
+    }
+
+    public void addTag(Tag tag){
+        tags.add(tag);
+    }
+
+    /*
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name="tag_name")
+    private List<Tag> userBoards = new ArrayList<Tag>();
+
+
+     */
     @CreationTimestamp
     private Date regDate;
 

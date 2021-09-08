@@ -17,18 +17,18 @@ public class MyPageServiceImpl implements MyPageService{
     private MyPageBoardRepository repository;
 
     @Override
-    public boolean register(MyPageBoard myPageBoard) throws Exception{
+    public boolean register(MyPageBoard regBoard) throws Exception{
 
         log.info("boardRegister()!");
-        repository.save(myPageBoard);
+        repository.save(regBoard);
 
         return true;
     }
 
     @Override
-    public List<MyPageBoard> list() throws Exception {
+    public List<MyPageBoard> myList(Long userNo) throws Exception {
 
-        return repository.findAll();
+        return repository.findByUserNo(userNo);
     }
 
     @Override

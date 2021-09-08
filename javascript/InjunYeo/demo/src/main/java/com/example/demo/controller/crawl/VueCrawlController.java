@@ -16,6 +16,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*")
 @Slf4j
 public class VueCrawlController {
+    /*
 
     @Autowired
     VueDaumNewsCrawlService service;
@@ -31,6 +32,8 @@ public class VueCrawlController {
 
 
     }
+
+     */
 
 
 }

@@ -60,5 +60,17 @@ public class UserServiceImpl implements UserService{
 
     }
 
+    @Override
+    public boolean checkUserIdValidation(String userEmail) throws Exception {
+        User maybeUser = userRepository.findByEmail(userEmail);
+
+        if(maybeUser ==null){
+            log.info("검색결과 없음");
+            return false;
+        }
+
+        return true;
+    }
+
 
 }
