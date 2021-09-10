@@ -6,7 +6,7 @@ import MainPage from '../views/main/MainPage.vue'
 import RegisterPage from '../views/register/RegisterPage.vue'
 import ClearPage from '../views/register/ClearPage.vue'
 
-import LoginPage from '../views/login/LoginPage.vue'
+import LoginAndRegisterPage from '../views/login/LoginAndRegisterPage.vue'
 import SubPage from '../views/sub/SubPage.vue'
 //마이페이지
 import MyPageBoard from '../views/my/MyPageBoard.vue'
@@ -43,9 +43,9 @@ const routes = [
   },
 
   {
-    path: '/login',
-    name: 'LoginPage',
-    component: LoginPage
+    path: '/login-and-register',
+    name: 'LoginAndRegisterPage',
+    component: LoginAndRegisterPage
   },
   //서브페이지
   {

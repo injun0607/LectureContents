@@ -17,7 +17,10 @@ import java.util.List;
 @Table(name="MyPageBoard")
 public class MyPageBoard {
 
-    @Id
+    //더미보드를 0으로 시작해서 시작작
+
+
+   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="board_no")
     private Long boardNo;
@@ -28,15 +31,20 @@ public class MyPageBoard {
     @Column(length=64,nullable = false)
     private String title;
 
+
+
     @Column(length=64,nullable = false)
     private String writer;
 
     @Column(nullable = false)
     private String content;
 
-    @OneToMany(fetch = FetchType.EAGER)
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name="tag_no")
     private List<Tag> tags = new ArrayList<Tag>();
+
+
 
     public MyPageBoard(String title, String writer, String content){
         this.title = title;
@@ -45,8 +53,10 @@ public class MyPageBoard {
     }
 
     public void addTag(Tag tag){
-        tags.add(tag);
+      tags.add(tag);
     }
+
+
 
     /*
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
